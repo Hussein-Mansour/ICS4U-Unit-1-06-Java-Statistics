@@ -70,8 +70,12 @@ final class Statistics {
         // rearrange the array smallest to largest
         Arrays.sort(arrayOfIntegers);
         // mid of the array
-        int mid = arrayOfIntegers[0] 
-                  + (arrayOfIntegers[9]-arrayOfIntegers[0])/2;
+        int mid;
+        if (arrayOfIntegers.length % 2 == 0)
+            mid = ((int)arrayOfIntegers[arrayOfIntegers.length/2] 
+                      + (int)arrayOfIntegers[arrayOfIntegers.length/2 - 1])/2;
+        else
+          mid = (int) arrayOfIntegers[arrayOfIntegers.length/2];
         // return statment
         return mid;
     }
