@@ -15,12 +15,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.HashSet;
 import java.util.Set;
-import static java.lang.System.*;
 
 /**
 * This is the statistics program.
@@ -48,14 +44,14 @@ final class Statistics {
     public static double mean(final Integer[] arrayOfIntegers) {
         // sum of the array
         int sum = 0;
-        //Advanced for loop
-        for( int num : arrayOfIntegers) {
-           sum = sum+num;
+        // Advanced for loop
+        for (int num : arrayOfIntegers) {
+            sum = sum + num;
         }
         // number of items in array
-        int size = arrayOfIntegers.length;
+        final int size = arrayOfIntegers.length;
         // mean calculation
-        int calculation = sum / size;
+        final int calculation = sum / size;
         // return statment
         return calculation;
     }
@@ -70,12 +66,13 @@ final class Statistics {
         // rearrange the array smallest to largest
         Arrays.sort(arrayOfIntegers);
         // mid of the array
-        int mid;
-        if (arrayOfIntegers.length % 2 == 0)
-            mid = ((int)arrayOfIntegers[arrayOfIntegers.length/2] 
-                      + (int)arrayOfIntegers[arrayOfIntegers.length/2 - 1])/2;
-        else
-          mid = (int) arrayOfIntegers[arrayOfIntegers.length/2];
+        final int mid;
+        if (arrayOfIntegers.length % 2 == 0) {
+            mid = ((int) arrayOfIntegers[arrayOfIntegers.length / 2]
+                  + (int) arrayOfIntegers[arrayOfIntegers.length / 2 - 1]) / 2;
+        } else {
+            mid = (int) arrayOfIntegers[arrayOfIntegers.length / 2];
+        }
         // return statment
         return mid;
     }
@@ -87,15 +84,15 @@ final class Statistics {
     * @return the mode of the integers
     */
     public static Set<Integer> mode(final Integer[] numbers) {
-        Set<Integer> modes = new HashSet<Integer>();
-        for (int i=0;i<numbers.length;i++){
-          for (int j=i+1;j<numbers.length;j++){
-            if (numbers[i] == numbers[j] && i != j){
-              // duplicate element found
-              modes.add(numbers[i]);
-              break;
+        final Set<Integer> modes = new HashSet<Integer>();
+        for (int i = 0; i < numbers.length; i++) {
+            for (int j = i + 1; j < numbers.length; j++) {
+                if (numbers[i] == numbers[j] && i != j) {
+                    // duplicate element found
+                    modes.add(numbers[i]);
+                    break;
+                }
             }
-          }
         }
         return modes;
     }
